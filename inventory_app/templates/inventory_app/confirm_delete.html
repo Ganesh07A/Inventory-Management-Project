@@ -1,0 +1,9 @@
+{% extends 'inventory_app/base.html' %}
+{% block content %}
+<h4>Are you sure you want  to delete "{{ product.name }}" ?</h4>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a href="{% url 'product-list' %}" class="btn btn-primary">Cancel</a>
+</form>
+{% endblock %}

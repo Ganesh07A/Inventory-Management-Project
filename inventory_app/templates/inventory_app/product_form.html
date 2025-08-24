@@ -1,0 +1,22 @@
+{% extends 'inventory_app/base.html' %}
+{% block content %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit" class="btn btn-success">Save</button>
+  <a href="{% url 'product-list' %}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% block extra_js %}
+<script>
+  $(document).ready(function() {
+    $('.select2').select2({
+      placeholder: "Select an option",
+      width: '100%'
+    });
+  });
+</script>
+{% endblock %}
+
+{% endblock %}
+
